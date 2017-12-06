@@ -132,7 +132,7 @@ def main():
     svm_list = reload_pkl()
     print("done!")
     print("testing......")
-    accuracy, conf_matrix = data_testing_2(data, label, svm_list)
+    accuracy, conf_matrix = data_testing(data, label, svm_list)
     # accuracy = data_testing_2(data, label, svm_list)
     np.savetxt("svm confusion matrix.csv", conf_matrix, fmt='%10.5f', delimiter="," )
     print("accuracy is: {}".format(accuracy))
