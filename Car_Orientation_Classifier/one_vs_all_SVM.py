@@ -18,7 +18,7 @@ from sklearn.svm import LinearSVC
 input_path = "output/train/"
 recursive_glob_path = "output/train/*/*.png"
 y = ["-30", "-60", "-90", "-120", "-150", "-180", "30", "60", "90", "120", "150", "180"]
-rescale_num = 3000
+rescale_num = 500
 
 def get_most_common_shape(input_path):
     name_list = glob.glob(input_path, recursive=True)
@@ -65,12 +65,12 @@ def get_data(input_path, shape):
     return classes_features
 
 
-# def get_test_data(path, shape):
-#     image = cv2.imread(path)
-#     image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-#     image = cv2.resize(image, shape)
-#     features = hog(image, feature_vector=True, visualise= False, block_norm="L2-Hys")
-#     return features
+def get_test_data(path, shape):
+    image = cv2.imread(path)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    image = cv2.resize(image, shape)
+    features = hog(image, feature_vector=True, visualise= False, block_norm="L2-Hys")
+    return features
 
 
 
@@ -119,15 +119,15 @@ def train_svm(X, y):
     return svm_list
 
 
-# def data_testing(svm_list, new_data):
-#
-#     for i in range(len(svm_list)):
-#         predict_result = svm_list[i].predict(new_data)
-#         # score = np.max(svm_list[i].predict_proba(new_data))
-#         if predict_result == 1:
-#             print("new data might in class {}".format(i+1))
-#         else:
-#             print("new data is not in class {}".format(i+1))
+def data_testing(svm_list, new_data):
+
+    for i in range(len(svm_list)):
+        predict_result = svm_list[i].predict(new_data)
+        # score = np.max(svm_list[i].predict_proba(new_data))
+        if predict_result == 1:
+            print("new data might in class {}".format(i+1))
+        else:
+            print("new data is not in class {}".format(i+1))
 
 
 def reload_pkl ():
@@ -178,30 +178,30 @@ def main():
     start = datetime.now()
     print("start time is: {}".format(start))
 
-    # mode, mean, median = get_most_common_shape(recursive_glob_path)
-    # print("mode, mean, median are: {}, {}, {}".format(mode, mean, median))
-    # datas = get_data(input_path, median)
-    # np.save("datas.npy", datas)
+    mode, mean, median = get_most_common_shape(recursive_glob_path)
+    print("mode, mean, median are: {}, {}, {}".format(mode, mean, median))
+    datas = get_data(input_path, median)
+    np.save("datas.npy", datas)
     datas = np.load("datas.npy")
 
     print("training......")
     train_svm(datas, y)
     print("done!")
 
-    # svm_list = reload_pkl()
+    svm_list = reload_pkl()
 
-    # test_data_1 = get_test_data("/home/alaaaaan/Desktop/006005_1.png", median).reshape(1, -1)
-    # data_testing(svm_list, test_data_1)
-    #
-    # test_data_2 = get_test_data("/home/alaaaaan/Desktop/006007_1.png", median).reshape(1, -1)
-    # data_testing(svm_list, test_data_2)
-    #
-    # test_data_3 = get_test_data("/home/alaaaaan/Desktop/006000_1.png", median).reshape(1, -1)
-    # data_testing(svm_list, test_data_3)
+    test_data_1 = get_test_data("/home/alaaaaan/Desktop/006005_1.png", median).reshape(1, -1)
+    data_testing(svm_list, test_data_1)
 
-    # path = "/home/alaaaaan/Desktop/006120.png"
-    # bbox = [255, 178,  441, 304]
-    # draw(path, bbox)
+    test_data_2 = get_test_data("/home/alaaaaan/Desktop/006007_1.png", median).reshape(1, -1)
+    data_testing(svm_list, test_data_2)
+
+    test_data_3 = get_test_data("/home/alaaaaan/Desktop/006000_1.png", median).reshape(1, -1)
+    data_testing(svm_list, test_data_3)
+
+    path = "/home/alaaaaan/Desktop/006120.png"
+    bbox = [255, 178,  441, 304]
+    draw(path, bbox)
     stop = datetime.now()
     print("run time is: {}".format(stop-start))
 
