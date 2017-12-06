@@ -15,7 +15,7 @@ Env Requirement:
 - put new testing set label to Car_Orientation_Classifier/data/testing/label_2
 
 How to run:
-- run MakeData.py
+- run MakeData.py (make test and train set respectively. After run first time, comment out 14-16 and uncomment 10-12 and rerun)
 - run all_in_one_SVM.py if you want to use method 1
 - run one_vs_all_SVM.py if you want to use method 2
 - run their respective test file to get the accuracy and confusion matrix
