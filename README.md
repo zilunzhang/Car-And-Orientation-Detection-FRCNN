@@ -48,6 +48,6 @@ How to run:
 - run train_net.py to train the network or you can use pre-trained model on google drive.
 - run test_kitti.py on Faster_RCNN_with_KITTI/faster_rcnn/test_KITTI to look result for Faster-RCNN
 - run FRCNN_getaccuracy.py on Faster_RCNN_with_KITTI/faster_rcnn/test_FRCNN_3d to get the accuracy and confusion matrix.
-- run run3d.py on Faster_RCNN_with_KITTI/faster_rcnn/test_FRCNN_3d to get the result demo for 3d bounding box.
+- run run3d.py on Faster_RCNN_with_KITTI/faster_rcnn/test_FRCNN_3d to get the result demo for 3d bounding box. Note for this one you need to download the right Object dataset from KITTI and put them to specific location following the instruction on code file. 
 
 
