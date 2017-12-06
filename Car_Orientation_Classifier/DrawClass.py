@@ -14,8 +14,8 @@ from math import cos, sin
 font = cv2.FONT_HERSHEY_DUPLEX
 
 
-input_path = "../output/train/"
-recursive_glob_path = "../output/train/*/*.png"
+input_path = "./output/train/"
+recursive_glob_path = "./output/train/*/*.png"
 y = ["-30", "-60", "-90", "-120", "-150", "-180", "30", "60", "90", "120", "150", "180"]
 
 
