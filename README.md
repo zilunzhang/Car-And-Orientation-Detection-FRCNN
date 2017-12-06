@@ -21,3 +21,22 @@ How to run:
 - run their respective test file to get the accuracy and confusion matrix Notice: change path in main
 
 _______________________________________________________
+Faster-RCNN Object Detection and Classification
+  - This is Faster-RCNN Classifier
+
+Env Requirement: 
+- Using python 2.7 with tensorflow 1.3 (1.4 will cause error), conda installed version.
+- Install packages: lots of packages, show on "Dependency" file. Make sure you have all of them.
+
+- Download KITTI dataset: http://www.cvlibs.net/download.php?file=data_object_image_2.zip. 
+- Using only training set (testing set does not have labels), divided it to training and testing again (training 6000, testing 1481)
+- put new training set image to Car_Orientation_Classifier/data/training/image_2
+- put new training set label to Car_Orientation_Classifier/data/training/label_2
+- put new testing set image to Car_Orientation_Classifier/data/testing/image_2
+- put new testing set label to Car_Orientation_Classifier/data/testing/label_2
+
+How to run:
+- run MakeData.py (make test and train set respectively. After run first time, comment out 14-16 and uncomment 10-12 and rerun)
+- run all_in_one_SVM.py if you want to use method 1 Notice: change path in main
+- run one_vs_all_SVM.py if you want to use method 2 Notice: change path in main
+- run their respective test file to get the accuracy and confusion matrix Notice: change path in main
