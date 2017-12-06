@@ -191,17 +191,25 @@ def main():
     print("done!")
 
     svm_list = reload_pkl()
-
+    
+    
+    
+    # change it to your path
     test_data_1 = get_test_data("/home/alaaaaan/Desktop/006005_1.png", median).reshape(1, -1)
     data_testing(svm_list, test_data_1)
-
+    
+    # change it to your path
     test_data_2 = get_test_data("/home/alaaaaan/Desktop/006007_1.png", median).reshape(1, -1)
     data_testing(svm_list, test_data_2)
-
+    
+    # change it to your path
     test_data_3 = get_test_data("/home/alaaaaan/Desktop/006000_1.png", median).reshape(1, -1)
     data_testing(svm_list, test_data_3)
-
+    
+    # change it to your path
     path = "/home/alaaaaan/Desktop/006120.png"
+    
+    # this input parameter is from result of Faster RCNN detection
     bbox = [255, 178,  441, 304]
     draw(path, bbox)
     stop = datetime.now()
