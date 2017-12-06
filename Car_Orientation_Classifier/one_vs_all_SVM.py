@@ -92,21 +92,23 @@ def pre_processing_data (X, index):
         data_positive[:data_1.shape[0], :] = data_1
 
 
-
     data_except_1 = np.delete(X, index)
 
     else_in_one = np.concatenate(data_except_1, axis=0)
     np.random.shuffle(else_in_one)
-    # else_in_one = else_in_one[:np.int(data_1.shape[0]*1), :]
-    data_negtive = else_in_one[:rescale_num, :]
+    else_in_one = else_in_one[:np.int(data_1.shape[0]*1.1), :]
+    # data_negetive = else_in_one[:rescale_num, :]
+    data_negetive = else_in_one
     print("1 class's shape is: {}".format(data_positive.shape))
-    print("0 class's shape is: {}".format(data_negtive.shape))
-    all_in_one_data = np.concatenate((data_positive, data_negtive), axis=0)
+    print("0 class's shape is: {}".format(data_negetive.shape))
+    all_in_one_data = np.concatenate((data_positive, data_negetive), axis=0)
     all_in_one_label = np.zeros((all_in_one_data.shape[0], 1))
     all_in_one_label[:data_positive.shape[0], :] = 1
     all_in_one_label = all_in_one_label.ravel()
 
     return all_in_one_data, all_in_one_label
+
+
 
 
 def train_svm(X, y):
