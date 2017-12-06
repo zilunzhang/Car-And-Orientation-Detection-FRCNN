@@ -16,8 +16,8 @@ Env Requirement:
 
 How to run:
 - run MakeData.py (make test and train set respectively. After run first time, comment out 14-16 and uncomment 10-12 and rerun)
-- run all_in_one_SVM.py if you want to use method 1
-- run one_vs_all_SVM.py if you want to use method 2
-- run their respective test file to get the accuracy and confusion matrix
+- run all_in_one_SVM.py if you want to use method 1 Notice: change path in main
+- run one_vs_all_SVM.py if you want to use method 2 Notice: change path in main
+- run their respective test file to get the accuracy and confusion matrix Notice: change path in main
 
 _______________________________________________________
