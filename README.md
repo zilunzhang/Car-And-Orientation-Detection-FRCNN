@@ -6,7 +6,7 @@ Car_Orientation_Classifier
 
 Env Requirement: 
 - Using python 3.6, conda installed version.
-- Install numpy, opencv3 menpo version by anaconda3.
+- Install numpy, opencv3 menpo version, sklearn, skimage by anaconda3.
 - Download KITTI dataset: http://www.cvlibs.net/download.php?file=data_object_image_2.zip. 
 - Using only training set (testing set does not have labels), divided it to training and testing again (training 6000, testing 1481)
 - put new training set image to Car_Orientation_Classifier/data/training/image_2
