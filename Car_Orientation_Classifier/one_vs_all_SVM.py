@@ -18,7 +18,9 @@ from sklearn.svm import LinearSVC
 input_path = "output/train/"
 recursive_glob_path = "output/train/*/*.png"
 y = ["-30", "-60", "-90", "-120", "-150", "-180", "30", "60", "90", "120", "150", "180"]
-rescale_num = 500
+
+# revise this for sampling specific number of data from a single matrix, if not has that much, fill with mean. 
+rescale_num = 3000
 
 def get_most_common_shape(input_path):
     name_list = glob.glob(input_path, recursive=True)
